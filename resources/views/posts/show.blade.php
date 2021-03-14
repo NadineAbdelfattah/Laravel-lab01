@@ -22,6 +22,10 @@
       <h5 class="card-title">{{$post['title']}}</h5>
       <p class="card-text">{{$post['description']}}</p>
     </div>
+    <div class="card-body">
+      <h5 class="card-title"><b>Title :- </b>{{$post['title']}}</h5>
+      <p class="card-text"><b>Description :-</b><br>{{$post['description']}}</p>
+    </div>
   </div>
   @endsection
   <!-- JavaScript Bundle with Popper -->
