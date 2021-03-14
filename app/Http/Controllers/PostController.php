@@ -29,6 +29,22 @@ class PostController extends Controller
     }
     public function store()
     {
-        dd('We are in store');
+        //dd('We are in store');
+        return redirect()->route('posts.index');
+    }
+    public function edit($post){
+        //logic for saving in db
+        $post = ['id' => 1, 'title' => 'Laravel', 'description' => 'Show Post Description', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-13'];
+
+        return view('posts.edit',[
+            'post'=>$post            
+        ]);
+    }
+    public function update($post)
+    {
+        //logic for saving in db
+        // dd("skksks");
+        return redirect()->route('posts.index');
+        // return view('posts.index');
     }
 }
