@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,17 +13,24 @@
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/', function ()
+{
     return view('welcome');
 });
+use App\Http\Controllers\PostController;
+//dd(TestController::class);//die_dump=>means var_dump(); then exit;
+//Route::get('test2', [TestController::class, 'testAction']);
+Route::get('posts', 'PostController@index');
 
-Route::get('/test', function () {
-    $posts=[
-        ['id'=>1, 'title'=>'Laravel', 'posted_by'=>'Nadine','created_at'=>'2021-03-13'],
-        ['id'=>2, 'title'=>'Javascript', 'posted_by'=>'Nour','created_at'=>'2021-03-13']
-    ];
-    return view('test', [
-        'posts'=>$posts
-    ]);
+Route::get('posts.index', function ()
+ {
+    // $posts=[
+    //     ['id'=>1, 'title'=>'Laravel', 'posted_by'=>'Nadine','created_at'=>'2021-03-13'],
+    //     ['id'=>2, 'title'=>'Javascript', 'posted_by'=>'Nour','created_at'=>'2021-03-13']
+    // ];
+    // return view('index', [
+    //     'posts'=>$posts
+    // ]);
 });
 
