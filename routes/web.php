@@ -22,6 +22,8 @@ use App\Http\Controllers\PostController;
 //dd(TestController::class);//die_dump=>means var_dump(); then exit;
 //Route::get('test2', [TestController::class, 'testAction']);
 Route::get('posts', 'PostController@index')->name('posts.index');
+Route::get('/posts/create', 'PostController@create')->name('posts.create');
+Route::post('posts','PostController@store')->name('posts.store');
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 Route::get('posts.index', function ()
  {
