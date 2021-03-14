@@ -25,7 +25,7 @@
     <!-- As a link -->
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">All posts</a>
     </div>
   </nav>
   
@@ -49,7 +49,7 @@
         <td>{{$post['posted_by']}}</td>
         <td>{{$post['created_at']}}</td>
         <td class="col">
-            <a href="#" class="btn btn-info">View</a>
+            <a href="{{route('posts.show',['post'=>$post['id']])}}" class="btn btn-info">View</a>
             <a href="#" class="btn btn-primary">Edit</a>
             <a href="#" class="btn btn-danger">Delete</a>
         </td>

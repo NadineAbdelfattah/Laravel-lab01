@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+use Illuminate\Support\Facades\Route;
 Route::get('/', function ()
 {
     return view('welcome');
@@ -22,7 +22,7 @@ use App\Http\Controllers\PostController;
 //dd(TestController::class);//die_dump=>means var_dump(); then exit;
 //Route::get('test2', [TestController::class, 'testAction']);
 Route::get('posts', 'PostController@index');
-Route::get('/posts/{post}', 'PostController@show');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 Route::get('posts.index', function ()
  {
     // $posts=[
