@@ -42,7 +42,7 @@
           <a href="{{ route('posts.show', [ 'post' => $post['id'] ]) }}" class="btn btn-info">View</a>
           <a href="{{route('posts.edit',['post' => $post['id'] ])}}" class="btn btn-primary">Edit</a>
           {{-- <a href="{{"delete/".$post['id']}}" class="btn btn-danger">Delete</a> --}}
-          <form method="post" action="{{route('posts.destroy' , ['post'=>$post['id']])}}">
+          <form method="post" onsubmit="return confirm('Do you really want to delete?');" action="{{route('posts.destroy' , ['post'=>$post['id']])}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             {{ method_field('DELETE') }}‏
             <input type="submit" value="Delete" class="btn btn-danger" style="float: right">
