@@ -47,14 +47,23 @@ class PostController extends Controller
 
             $data = request()->all();
             //Create method accepts associative array.
-            Post::create([
-                'title'=>$data['title'],
-                'description'=>$data['description'],
-                'id'=>14,//It will  be ignored because it is not included in $fillable->Post.php
+            // Post::create([
+            //     'title'=>$data['title'],
+            //     'description'=>$data['description'],
+            //     'id'=>14,//It will  be ignored because it is not included in $fillable->Post.php
 
-            ]);
+            // ]);
            //we can use:request()->title; Or request->description;
            // dd(request(),$myRequestObj);
+
+
+           //WITH THIS SYNTAX YOU DON'T NEED TO USE FILLABLE..
+        //    $post = new Post;
+        //     $post->title=$data['title'];
+        //     $post->description = $data['description'];
+        //     $post->save();
+
+           //Post::create($data);
         return redirect()->route('posts.index');
     }
     public function edit($post){
