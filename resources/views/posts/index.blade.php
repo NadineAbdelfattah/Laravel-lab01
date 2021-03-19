@@ -37,7 +37,7 @@
         <th scope="row">{{$post->id}}</th>
         <td>{{$post->title}}</td>
         <td>{{$post->User ? $post->User->name: 'User not found'}}</td>
-        <td>{{$post->created_at}}</td>
+        <td>{{$post->created_at->diffForHumans()}}</td>
         <td class="col">
           <a href="{{ route('posts.show', [ 'post' => $post['id'] ]) }}" class="btn btn-info">View</a>
           <a href="{{route('posts.edit',['post' => $post['id'] ])}}" class="btn btn-primary">Edit</a>
