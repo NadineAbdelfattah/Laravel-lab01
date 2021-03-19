@@ -45,7 +45,7 @@
           <form method="post" onsubmit="return confirm('Do you really want to delete?');" action="{{route('posts.destroy' , ['post'=>$post['id']])}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             {{ method_field('DELETE') }}‏
-            <input type="submit" value="Delete" class="btn btn-danger" style="float: right">
+            <input type="submit" value="Delete" class="btn btn-danger" style="float:right">
         </form>
         </td>
       </tr>

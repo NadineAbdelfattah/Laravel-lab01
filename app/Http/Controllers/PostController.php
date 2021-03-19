@@ -76,10 +76,11 @@ class PostController extends Controller
     }
     public function edit($post)
     {
-        $post = Post::find($post);
-        
+      
+      $post = Post::find($post);
+     // dd($post)  ;  
         return view('posts.edit' , [
-            'post' => $post
+            'post'=> $post
         ]);
     }
     public function update($post,Request $req)

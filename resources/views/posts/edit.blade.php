@@ -17,6 +17,15 @@
                 <textarea name="description" class="form-control">{{$post['description']}}</textarea>
             </div>
 
+            <div class="mb-3">
+                <label for="post-creator" class="form-label">Post Creator</label>
+                <select class="form-control" name="user_id">
+                    <option value="{{$post->user->id}}">
+                            {{$post->user->name}}
+                    </option>
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-success">Update</button>
         </form>
     </div>
