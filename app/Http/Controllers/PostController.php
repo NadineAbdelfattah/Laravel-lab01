@@ -41,6 +41,20 @@ class PostController extends Controller
     public function store()
     {
         //dd('We are in store');
+        //logic for saving in DB:
+            //get the request data
+            //insert this request data into DB
+
+            $data = request()->all();
+            //Create method accepts associative array.
+            Post::create([
+                'title'=>$data['title'],
+                'description'=>$data['description'],
+                'id'=>14,//It will  be ignored because it is not included in $fillable->Post.php
+
+            ]);
+           //we can use:request()->title; Or request->description;
+           // dd(request(),$myRequestObj);
         return redirect()->route('posts.index');
     }
     public function edit($post){
