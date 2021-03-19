@@ -66,19 +66,30 @@ class PostController extends Controller
            //Post::create($data);
         return redirect()->route('posts.index');
     }
-    public function edit($post){
-        //logic for saving in db
-        $post = ['id' => 1, 'title' => 'Laravel', 'description' => 'Show Post Description', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-13'];
-
-        return view('posts.edit',[
-            'post'=>$post            
+    public function edit($post)
+    {
+        $post = Post::find($post);
+        
+        return view('posts.edit' , [
+            'post' => $post
         ]);
     }
-    public function update($post)
+    public function update($post,Request $req)
     {
         //logic for saving in db
         // dd("skksks");
+        // return $req->input();
+    //    $data = $req;
+       $data=$req->all();
+       Post::find($post)->update($data);
+
+         return redirect()->route('posts.index');
+    }
+    public function destroy($post)
+    {
+        $post = Post::find($post);
+        $post->delete();
         return redirect()->route('posts.index');
-        // return view('posts.index');
+       
     }
 }
