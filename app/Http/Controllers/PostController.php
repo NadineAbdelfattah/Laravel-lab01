@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -36,16 +38,22 @@ class PostController extends Controller
     }
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create',[
+            'users'=>User::all()
+        ]);
     }
-    public function store()
+    public function store(Request $myRequestObject)
     {
+        $data = $myRequestObject->all();
+       // dd($data);
+        Post::create($data);
+        
         //dd('We are in store');
         //logic for saving in DB:
             //get the request data
             //insert this request data into DB
 
-            $data = request()->all();
+            // $data = request()->all();
             //Create method accepts associative array.
             // Post::create([
             //     'title'=>$data['title'],

@@ -31,12 +31,12 @@
     </thead>
     <tbody>
     @foreach ($posts as $post)
-      {{-- @dd($posts,$post) --}}
+      {{-- //@dd($post->myUserRelation->name) --}}
       
       <tr>
         <th scope="row">{{$post->id}}</th>
         <td>{{$post->title}}</td>
-        <td>{{$post->posted_by}}</td>
+        <td>{{$post->User ? $post->User->name: 'User not found'}}</td>
         <td>{{$post->created_at}}</td>
         <td class="col">
           <a href="{{ route('posts.show', [ 'post' => $post['id'] ]) }}" class="btn btn-info">View</a>
