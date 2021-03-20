@@ -12,7 +12,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Fascades\DB;
-
+use App\Http\Requests\StorePostRequest;
 
 
 
@@ -53,16 +53,16 @@ class PostController extends BaseController
             'users'=>User::all()
         ]);
     }
-    public function store(Request $myRequestObject)
+    public function store(StorePostRequest $myRequestObject)
     {
         $data = $myRequestObject->all();
        // dd($data);
-       $this->validate($myRequestObject,[
-           'title'=>'required',
-           'description'=>'required'
-       ],[
-           'title.required'=>'Please enter the title'
-       ]);
+    //    $this->validate($myRequestObject,[
+    //        'title'=>'required',
+    //        'description'=>'required'
+    //    ],[
+    //        'title.required'=>'Please enter the title'
+    //    ]);
         Post::create($data);
         
         //dd('We are in store');
