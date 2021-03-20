@@ -2,6 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
   <div class="mt-5">
     <form method="POST" action="{{route('posts.store')}}">

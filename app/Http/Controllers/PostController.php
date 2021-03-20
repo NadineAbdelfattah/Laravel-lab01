@@ -5,10 +5,21 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Fascades\DB;
 
 
-class PostController extends Controller
+
+
+class PostController extends BaseController
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function index()
     {
         // $posts=[
@@ -46,6 +57,12 @@ class PostController extends Controller
     {
         $data = $myRequestObject->all();
        // dd($data);
+       $this->validate($myRequestObject,[
+           'title'=>'required',
+           'description'=>'required'
+       ],[
+           'title.required'=>'Please enter the title'
+       ]);
         Post::create($data);
         
         //dd('We are in store');
