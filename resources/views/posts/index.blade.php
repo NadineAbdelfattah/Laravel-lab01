@@ -15,7 +15,8 @@
 @extends('layouts.app')
 
 @section('content')
-  
+<div class="container">
+  <div class="mt-5">
   <a href="{{route('posts.create')}}" class="btn btn-success">Create Post</a>
 
   <table class="table mt-5">
@@ -32,7 +33,7 @@
     <tbody>
     @foreach ($posts as $post)
       {{-- //@dd($post->myUserRelation->name) --}}
-      
+
       <tr>
         <th scope="row">{{$post->id}}</th>
         <td>{{$post->title}}</td>
@@ -52,6 +53,8 @@
     @endforeach
     </tbody>
   </table>
+  </div>
+</div>
   @endsection
   <!-- JavaScript Bundle with Popper -->
 

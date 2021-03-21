@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use App\User;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -26,8 +26,8 @@ class PostController extends BaseController
         //     ['id'=>1, 'title'=>'Laravel', 'description'=>'This is description','posted_by'=>'Nadine','created_at'=>'2021-03-13'],
         //     ['id'=>2, 'title'=>'Javascript','description'=>'This is description', 'posted_by'=>'Nour','created_at'=>'2021-03-13']
         // ];
-        $posts = Post::all();//select*from posts; 
-        //dd($posts); 
+        $posts = Post::all();//select*from posts;
+        //dd($posts);
         return view('posts.index', [
             'posts'=>$posts
         ]);
@@ -39,9 +39,9 @@ class PostController extends BaseController
         //$post=Post::find($post);
         //  $post=Post::where("title",'JS')->first();//Select * from posts where title = 'JS' limit 1;
         //when you use where and first, It makes limit =1 and returns first match result.
-        // dd($post); 
+        // dd($post);
         // $post = Post::where('title', '=', 'JS')->get();
-        // dd($post); 
+        // dd($post);
         $post = Post::find($post);
         return view('posts.show',[
             'post'=>$post
@@ -64,7 +64,7 @@ class PostController extends BaseController
     //        'title.required'=>'Please enter the title'
     //    ]);
         Post::create($data);
-        
+
         //dd('We are in store');
         //logic for saving in DB:
             //get the request data
@@ -93,9 +93,9 @@ class PostController extends BaseController
     }
     public function edit($post)
     {
-      
+
       $post = Post::find($post);
-     // dd($post)  ;  
+     // dd($post)  ;
         return view('posts.edit' , [
             'post'=> $post
         ]);
@@ -116,6 +116,6 @@ class PostController extends BaseController
         $post = Post::find($post);
         $post->delete();
         return redirect()->route('posts.index');
-       
+
     }
 }
